@@ -56,19 +56,21 @@ public class LoginJFrame extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Vector_1.png"))); // NOI18N
 
-        UsernameTextField.setFont(new java.awt.Font("FONTSPRING DEMO - Cera Round Pro Medium", 0, 14)); // NOI18N
+        UsernameTextField.setFont(new java.awt.Font("Cera Pro", 1, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("FONTSPRING DEMO - Cera Round Pro Black", 0, 14)); // NOI18N
+        PasswordTextField.setFont(new java.awt.Font("Cera Pro", 1, 13)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Cera Pro", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(63, 65, 78));
         jLabel5.setText("Nombre de Usuario");
 
-        jLabel6.setFont(new java.awt.Font("FONTSPRING DEMO - Cera Round Pro Black", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Cera Pro", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(63, 65, 78));
         jLabel6.setText("Contraseña");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/bluejeans-preview.png"))); // NOI18N
 
-        LoginjButton.setFont(new java.awt.Font("FONTSPRING DEMO - Cera Round Pro Black", 0, 14)); // NOI18N
+        LoginjButton.setFont(new java.awt.Font("Cera Pro", 1, 14)); // NOI18N
         LoginjButton.setForeground(new java.awt.Color(255, 255, 255));
         LoginjButton.setText("Iniciar Sesión");
         LoginjButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -104,13 +106,12 @@ public class LoginJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel7))
                     .addComponent(jLabel6))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(194, 194, 194)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(93, 93, 93)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,7 +136,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 26, Short.MAX_VALUE)
+                        .addGap(0, 24, Short.MAX_VALUE)
                         .addComponent(jLabel8)
                         .addGap(53, 53, 53)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
