@@ -17,6 +17,7 @@ public class LoginJFrame extends javax.swing.JFrame {
      */
     public LoginJFrame() {
         initComponents();
+        this.setTitle("Nombre del formulario");
         //Settung color in Jframe
         this.getContentPane().setBackground(Color.decode("#FAF7F2"));
         //Setting background Button
