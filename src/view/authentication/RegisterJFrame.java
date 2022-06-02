@@ -4,9 +4,12 @@
  */
 package view.authentication;
 
-import controller.controller;
-import model.methods;
-import model.user;
+import config.MyConnection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,6 +72,11 @@ public class RegisterJFrame extends javax.swing.JFrame {
         RegisterDataButton.setFont(new java.awt.Font("Cera Pro", 1, 14)); // NOI18N
         RegisterDataButton.setForeground(new java.awt.Color(255, 255, 255));
         RegisterDataButton.setText("Guardar");
+        RegisterDataButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterDataButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,6 +134,35 @@ public class RegisterJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameTextFieldActionPerformed
 
+    private void RegisterDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterDataButtonActionPerformed
+        // TODO add your handling code here:
+        String firstname = FirstNameTextField.getText();
+        String lastname = LastNameTextField.getText();
+        String email = EmailTextField.getText();
+        String username = UsernameTextField.getText();
+        String password = String.valueOf(PasswordField.getPassword());
+        
+        PreparedStatement ps;
+        
+        String query = "INSERT INTO users (firstname,lastname,email,username,password) VALUES (?,?,?,?,?)";
+        
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+            
+            ps.setString(1, firstname);
+            ps.setString(2, lastname);
+            ps.setString(3, email);
+            ps.setString(4, username);
+            ps.setString(5, password);
+            
+            if(ps.executeUpdate() > 0){
+                JOptionPane.showConfirmDialog(null, "Usuario creado con éxito");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_RegisterDataButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -154,14 +191,6 @@ public class RegisterJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        
-        user user = new user();
-        
-        RegisterJFrame register = new RegisterJFrame();
-        
-        controller controller = new controller(register, user);
-        register.setVisible(true);
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RegisterJFrame().setVisible(true);

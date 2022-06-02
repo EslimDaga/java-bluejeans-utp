@@ -4,10 +4,7 @@
  */
 package view.authentication;
 
-import controller.controller;
 import java.awt.Color;
-import model.methods;
-import model.user;
 
 /**
  *
