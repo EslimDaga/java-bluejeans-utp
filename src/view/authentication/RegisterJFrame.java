@@ -142,24 +142,33 @@ public class RegisterJFrame extends javax.swing.JFrame {
         String username = UsernameTextField.getText();
         String password = String.valueOf(PasswordField.getPassword());
         
-        PreparedStatement ps;
+        //Validaciones
+        if(email.equals("")){
+            JOptionPane.showMessageDialog(null, "El campo correo electronico es requerido");
+        }else if(username.equals("")){
+            JOptionPane.showMessageDialog(null, "El campo usuario es requerido");
+        }else if(password.equals("")){
+            JOptionPane.showMessageDialog(null, "El campo contraseña es requerido");
+        }else{
+            PreparedStatement ps;
         
-        String query = "INSERT INTO users (firstname,lastname,email,username,password) VALUES (?,?,?,?,?)";
-        
-        try {
-            ps = MyConnection.getConnection().prepareStatement(query);
-            
-            ps.setString(1, firstname);
-            ps.setString(2, lastname);
-            ps.setString(3, email);
-            ps.setString(4, username);
-            ps.setString(5, password);
-            
-            if(ps.executeUpdate() > 0){
-                JOptionPane.showConfirmDialog(null, "Usuario creado con éxito");
+            String query = "INSERT INTO users (firstname,lastname,email,username,password) VALUES (?,?,?,?,?)";
+
+            try {
+                ps = MyConnection.getConnection().prepareStatement(query);
+
+                ps.setString(1, firstname);
+                ps.setString(2, lastname);
+                ps.setString(3, email);
+                ps.setString(4, username);
+                ps.setString(5, password);
+
+                if(ps.executeUpdate() > 0){
+                    JOptionPane.showMessageDialog(null, "Usuario creado con éxito");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_RegisterDataButtonActionPerformed
 
